@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: nexus-chess
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nexuschess
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  security:
+    jwt:
+      secret-key: 'hier-kommt-später-ein-sicherer-schlüssel-hin'
+      expiration: 86400000  # 24 Stunden in Millisekunden
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
